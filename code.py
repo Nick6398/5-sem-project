@@ -9,7 +9,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics 
 #IMPORTING DATASET
-data=pd.read_csv(r"Processed_Model_Data1.csv")
+data=pd.read_csv(r"Diabetes.csv")
 data.head()
 #SELECTING COLUMNS(ATTRIBUTES)
 data=data.iloc[:,[0,1,2,3,4,5,6,7,8]] 
@@ -22,7 +22,6 @@ data.isnull().sum()
 sns.heatmap(data.corr(),annot= True)
 #LABEL ENCODING THE ATTRIBUTES TO NUMERIC VALUES
 le=LabelEncoder()
-data['Sex']=le.fit_transform(data.Sex)
 data['Outcome']=le.fit_transform(data.Outcome)
 data
 #FIND CORRELATION OF ALL DATAFRAMES
@@ -30,7 +29,6 @@ data.corr()
 sns.heatmap(data.corr(),annot=True)
 #COUNT NO OF OUTCOMES OF DIFFERENT TYPES 
 data['Outcome'].value_counts()
-print("Gender distribution:\n",data['Sex'].value_counts(),"\n")
 print("Outcome distribution:\n",data['Outcome'].value_counts(),"\n")
 #SPLITTING DATASET INTO TEST-TRAIN SET
 X,Y=data.iloc[:,0:7],data.iloc[:,8]
