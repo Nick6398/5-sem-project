@@ -19,8 +19,9 @@ data.dtypes
 #LOOKING FOR NULL VALUES
 data.isnull().sum()
 #FINDING THE MEAN TO REPLACE THE NULL VALUE
-mean=data.iloc[:,8].mean()
-data=data.fillna({'Outcome':mean})
+#mean=data.iloc[:,1].mean()
+#data=data.fillna({'Glucose':mean})
+#print(mean)
 #VISUALIZING THE VALUES IN A MATRIX
 sns.heatmap(data.corr(),annot= True)
 #LABEL ENCODING THE ATTRIBUTES TO NUMERIC VALUES
